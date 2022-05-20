@@ -3,10 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KutuphaneOtomasyonu.Business.Abstract;
 
 namespace KutuphaneOtomasyonu.Business.Concrete
 {
-    internal class OduncManager
+    internal class OduncManager : OduncService
     {
+        public void delete(Odunc odunc)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Odunc> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Odunc> GetByBookId(int bookID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Odunc> GetByBookISBN(int ISBN)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Odunc> GetByUser(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void save(Odunc odunc)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void update(Odunc odunc)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

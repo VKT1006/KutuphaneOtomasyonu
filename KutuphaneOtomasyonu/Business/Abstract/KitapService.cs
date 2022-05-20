@@ -8,5 +8,16 @@ namespace KutuphaneOtomasyonu.Business.Abstract
 {
     internal interface KitapService
     {
+        void save(Kitap kitap);
+
+        void update(Kitap kitap);
+
+        void delete(Kitap kitap);
+
+        List<Kitap> getAll();
+        Kitap get(Kitap kitap);
+        Kitap getById(int id);
+        List<Kitap> getByName(String name);
+        Kitap getByISBN(String isbn);
     }
 }
