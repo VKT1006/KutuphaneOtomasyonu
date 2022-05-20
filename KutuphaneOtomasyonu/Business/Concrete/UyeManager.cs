@@ -10,6 +10,14 @@ namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class UyeManager : UyeService
     {
+
+        IUyeDataAccess UyeDao;
+
+        public UyeManager(IUyeDataAccess UyeDao)
+        {
+            this.UyeDao = UyeDao;
+        }
+
         public void delete(IUyeDataAccess uye)
         {
             throw new NotImplementedException();

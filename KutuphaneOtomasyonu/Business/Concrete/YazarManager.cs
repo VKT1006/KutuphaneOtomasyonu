@@ -4,12 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KutuphaneOtomasyonu.Business.Abstract;
+using KutuphaneOtomasyonu.DataAccess.Abstract;
 using KutuphaneOtomasyonu.Entities;
 
 namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class YazarManager : YazarService
     {
+
+        IYazarDataAccess YazarDao;
+
+        public YazarManager(IYazarDataAccess YazarDao)
+        {
+            this.YazarDao = YazarDao;
+        }
+
         public void delete(Yazar yazar)
         {
             throw new NotImplementedException();

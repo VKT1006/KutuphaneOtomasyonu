@@ -4,12 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KutuphaneOtomasyonu.Business.Abstract;
+using KutuphaneOtomasyonu.DataAccess.Abstract;
 using KutuphaneOtomasyonu.Entities;
 
 namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class IletisimBilgileriManager : IletisimBilgileriService
     {
+
+
+        IIletisimBilgileriDataAccess iletisimBilgileriDao;
+
+
+        public IletisimBilgileriManager(IIletisimBilgileriDataAccess iletisimBilgileriDao)
+        {
+            this.iletisimBilgileriDao = iletisimBilgileriDao;
+        }
+
+
         public void delete(İletisimBilgileri iletisimBilgileri)
         {
             throw new NotImplementedException();

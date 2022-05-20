@@ -4,11 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KutuphaneOtomasyonu.Business.Abstract;
+using KutuphaneOtomasyonu.DataAccess.Concrete;
 
 namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class KitapManager : KitapService
     {
+
+        KitapDataAccess kitapDao;
+
+        public KitapManager(KitapDataAccess kitapDao)
+        {
+            this.kitapDao = kitapDao;
+        }
+
+
         public void delete(Kitap kitap)
         {
             throw new NotImplementedException();
