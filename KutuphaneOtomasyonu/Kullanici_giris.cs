@@ -57,7 +57,7 @@ namespace KutuphaneOtomasyonu
                 Console.WriteLine(reader["kullanici_parola"]);
             }
 
-
+            
 
         }
     }
