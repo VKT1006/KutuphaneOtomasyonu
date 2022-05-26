@@ -3,12 +3,12 @@
 public class Kitap
 {
 
-	private int id { get; set; }
-	private int yazarId { get; set; }
-	private string ISBN { get; set; }
-	private string kitapAdi { get; set; }
-	private string sayfaSayisi { get; set; }
-	private string aciklama { get; set; }
+	public int id { get; set; }
+	public int yazarId { get; set; }
+	public string ISBN { get; set; }
+	public string kitapAdi { get; set; }
+	public string sayfaSayisi { get; set; }
+	public string aciklama { get; set; }
 
 	public Kitap() : this(0, 0, "Bilgi Yok", "Bilgi Yok", "Bilgi Yok", "Bilgi Yok")
 	{

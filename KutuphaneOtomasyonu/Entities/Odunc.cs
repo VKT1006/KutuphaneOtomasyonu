@@ -8,11 +8,11 @@ namespace KutuphaneOtomasyonu.Entities
 {
     internal class Odunc
     {
-        private int id { get; set; }
-        private int kullaniciId { get; set; }
-        private int kitapId { get; set; }
-        private DateTime tarih { get; set; }
-        private DateTime teslimTarihi {  get; set; }
+        public int id { get; set; }
+        public int kullaniciId { get; set; }
+        public int kitapId { get; set; }
+        public DateTime tarih { get; set; }
+        public DateTime teslimTarihi {  get; set; }
 
         public Odunc() : this(0,0,0,new DateTime(0,0,0), new DateTime(0,0,0))
         {

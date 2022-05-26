@@ -3,11 +3,11 @@
 public class Uye
 {
 
-	private int id { get; set; }
-	private string ad { get; set; }
-	private string soyad { get; set; }
-	private int adresId { get; set; }
-	private string aciklama { get; set; }
+	public int id { get; set; }
+	public string ad { get; set; }
+	public string soyad { get; set; }
+	public int adresId { get; set; }
+	public string aciklama { get; set; }
 
 	public Uye(): this(0, "Bilgi Yok", "Bilgi Yok", 0)
 	{

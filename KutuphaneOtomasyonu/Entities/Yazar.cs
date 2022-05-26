@@ -10,11 +10,11 @@ namespace KutuphaneOtomasyonu.Entities
     internal class Yazar
     {
 
-        private int id { get; set; }
-        private string ad { get; set; }
-        private string soyad { get; set; }
-        private DateTime dogumTarihi { get; set; }
-        private string aciklama { get; set; }
+        public int id { get; set; }
+        public string ad { get; set; }
+        public string soyad { get; set; }
+        public DateTime dogumTarihi { get; set; }
+        public string aciklama { get; set; }
 
 
         public Yazar() : this(0, "Bilgi Yok", "Bilgi Yok", new DateTime(0,0,0), "Bilgi Yok")
