@@ -6,40 +6,44 @@ using System.Text;
 using System.Threading.Tasks;
 using KutuphaneOtomasyonu.Business.Abstract;
 using KutuphaneOtomasyonu.DataAccess.Abstract;
+using KutuphaneOtomasyonu.DataAccess.Concrete;
 using KutuphaneOtomasyonu.Entities;
 
 namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class IletisimBilgileriManager : IletisimBilgileriService
     {
+
+        IIletisimBilgileriDataAccess iletisimBilgileriDataAccess = new IletisimBilgileriDataAccess();
+
         public void delete(İletisimBilgileri iletisimBilgileri)
         {
-            throw new NotImplementedException();
+            iletisimBilgileriDataAccess.delete(iletisimBilgileri);
         }
 
         public DataSet getAll()
         {
-            throw new NotImplementedException();
+            return iletisimBilgileriDataAccess.getAll();
         }
 
         public DataSet getById(int id)
         {
-            throw new NotImplementedException();
+            return iletisimBilgileriDataAccess.getById(id);
         }
 
         public DataSet getByUyeId(int uyeId)
         {
-            throw new NotImplementedException();
+            return iletisimBilgileriDataAccess.getByUyeId(uyeId);
         }
 
         public void save(İletisimBilgileri iletisimBilgileri)
         {
-            throw new NotImplementedException();
+            iletisimBilgileriDataAccess.save(iletisimBilgileri);    
         }
 
         public void update(İletisimBilgileri iletisimBilgileri)
         {
-            throw new NotImplementedException();
+            iletisimBilgileriDataAccess.update(iletisimBilgileri);
         }
     }
 }
