@@ -1,3 +1,5 @@
+using System.Data;
+using KutuphaneOtomasyonu.Business.Concrete;
 using MySql.Data.MySqlClient;
 
 namespace KutuphaneOtomasyonu
@@ -36,28 +38,43 @@ namespace KutuphaneOtomasyonu
         private void button1_Click(object sender, EventArgs e)
         {
 
-            String server = "localhost";
-            String db = "kutuphane_otomasyon";
-            String username = "root";
-            String password = "";
-            String conString = "SERVER=" + server + ";" + "DATABASE=" + db+";" + 
-                "UID=" + username + ";"+"PASSWORD=" + password + ";";
 
-            MySqlConnection conn = new MySqlConnection(conString);
-
-            conn.Open();
-            String query = "select * from kullanicilar";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                Console.WriteLine(reader["kullanici_id"]);
-                Console.WriteLine(reader["kullanici_ad"]);
-                Console.WriteLine(reader["kullanici_parola"]);
-            }
+            KullaniciManager kullaniciManager = new KullaniciManager();
+            DataSet ds =  kullaniciManager.GetAll();
 
             
+
+            if(ds != null)
+            {
+
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    //Console.WriteLine(row[]);
+
+                    if (row["kullanici_adi"].ToString() == kullanici_adi_textBox.Text && row["parola"].ToString() == Parola_textBox.Text)
+                    {
+                        MessageBox.Show("Giriþ Baþarýlý!");
+                        Ana_sayfa ana_Sayfa = new Ana_sayfa();
+                        ana_Sayfa.Show();
+                        this.Hide();
+                        return;
+                    }
+                   
+                }
+
+                MessageBox.Show("Yanlýþ giriþ bilgileri! Lütfen Tekrar deneyiniz!");
+                foreach (Control c in Controls) if (c is TextBox) c.Text = ""; // Formun Control sýnýfýna bakarken direkt controls yaz
+
+               
+
+            }
+            else
+            {
+                MessageBox.Show("Kayýtlý Kullanýcý Yok!");
+            }
+            
+
+
 
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KutuphaneOtomasyonu.Business.Concrete;
 using MySql.Data.MySqlClient;
 
 namespace KutuphaneOtomasyonu
@@ -29,27 +30,10 @@ namespace KutuphaneOtomasyonu
         private void button1_Click(object sender, EventArgs e)
         {
 
-            String server = "localhost";
-            String db = "kutuphane_otomasyon";
-            String username = "root";
-            String password = "";
-            String conString = "SERVER=" + server + ";" + "DATABASE=" + db + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+            Kullanici kullanici = new Kullanici(0,kullanici_adi_textBox.Text, Parola_textBox.Text);
 
-            MySqlConnection conn = new MySqlConnection(conString);
-
-
-            MySqlCommand cmd = null;
-            string cmdString = "";
-            conn.Open();
-
-            cmdString = "insert into kullanicilar(kullanici_ad,kullanici_parola) values('" + kullanici_adi_textBox.Text + "','" + Parola_textBox.Text + "')";
-
-            cmd = new MySqlCommand(cmdString, conn);
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-
-            MessageBox.Show("Başarılı Bir Şekilde Kayıt Olundu!");
+            KullaniciManager kullaniciManager = new KullaniciManager();
+            kullaniciManager.save(kullanici);
 
         }
     }
