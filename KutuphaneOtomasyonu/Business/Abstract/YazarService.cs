@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,8 @@ namespace KutuphaneOtomasyonu.Business.Abstract
         void save(Yazar yazar);
         void delete(Yazar yazar);
         void update(Yazar yazar);
-        List<Yazar> GetAll();
-        List<Yazar> GetByName(String name);
-        List<Yazar> GetById(int id);
+        DataSet GetAll();
+        DataSet GetByName(String name);
+        DataSet GetById(int id);
     }
 }

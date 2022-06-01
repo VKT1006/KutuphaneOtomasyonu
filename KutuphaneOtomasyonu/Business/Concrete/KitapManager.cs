@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,41 +11,32 @@ namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class KitapManager : KitapService
     {
-
-        KitapDataAccess kitapDao;
-
-        public KitapManager(KitapDataAccess kitapDao)
-        {
-            this.kitapDao = kitapDao;
-        }
-
-
         public void delete(Kitap kitap)
         {
             throw new NotImplementedException();
         }
 
-        public Kitap get(Kitap kitap)
+        public DataSet get(Kitap kitap)
         {
             throw new NotImplementedException();
         }
 
-        public List<Kitap> getAll()
+        public DataSet getAll()
         {
             throw new NotImplementedException();
         }
 
-        public Kitap getById(int id)
+        public DataSet getById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Kitap getByISBN(string isbn)
+        public DataSet getByISBN(string isbn)
         {
             throw new NotImplementedException();
         }
 
-        public List<Kitap> getByName(string name)
+        public DataSet getByName(string name)
         {
             throw new NotImplementedException();
         }

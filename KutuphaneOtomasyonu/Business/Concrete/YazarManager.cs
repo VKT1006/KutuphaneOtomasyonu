@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,30 +12,22 @@ namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class YazarManager : YazarService
     {
-
-        IYazarDataAccess YazarDao;
-
-        public YazarManager(IYazarDataAccess YazarDao)
-        {
-            this.YazarDao = YazarDao;
-        }
-
         public void delete(Yazar yazar)
         {
             throw new NotImplementedException();
         }
 
-        public List<Yazar> GetAll()
+        public DataSet GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<Yazar> GetById(int id)
+        public DataSet GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Yazar> GetByName(string name)
+        public DataSet GetByName(string name)
         {
             throw new NotImplementedException();
         }

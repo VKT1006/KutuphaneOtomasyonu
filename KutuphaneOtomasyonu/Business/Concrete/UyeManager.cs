@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,30 +11,22 @@ namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class UyeManager : UyeService
     {
-
-        IUyeDataAccess UyeDao;
-
-        public UyeManager(IUyeDataAccess UyeDao)
-        {
-            this.UyeDao = UyeDao;
-        }
-
         public void delete(IUyeDataAccess uye)
         {
             throw new NotImplementedException();
         }
 
-        public List<IUyeDataAccess> get(IUyeDataAccess uye)
+        public DataSet get(IUyeDataAccess uye)
         {
             throw new NotImplementedException();
         }
 
-        public List<IUyeDataAccess> getAll()
+        public DataSet getAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<IUyeDataAccess> getByName(string name)
+        public DataSet getByName(string name)
         {
             throw new NotImplementedException();
         }

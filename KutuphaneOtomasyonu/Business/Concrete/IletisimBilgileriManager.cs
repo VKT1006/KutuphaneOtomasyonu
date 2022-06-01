@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,33 +12,22 @@ namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class IletisimBilgileriManager : IletisimBilgileriService
     {
-
-
-        IIletisimBilgileriDataAccess iletisimBilgileriDao;
-
-
-        public IletisimBilgileriManager(IIletisimBilgileriDataAccess iletisimBilgileriDao)
-        {
-            this.iletisimBilgileriDao = iletisimBilgileriDao;
-        }
-
-
         public void delete(İletisimBilgileri iletisimBilgileri)
         {
             throw new NotImplementedException();
         }
 
-        public List<İletisimBilgileri> getAll()
+        public DataSet getAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<İletisimBilgileri> getById(int id)
+        public DataSet getById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<İletisimBilgileri> getByUyeId(int uyeId)
+        public DataSet getByUyeId(int uyeId)
         {
             throw new NotImplementedException();
         }

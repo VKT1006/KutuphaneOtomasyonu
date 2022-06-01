@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,36 +12,27 @@ namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class OduncManager : OduncService
     {
-
-        IOduncDataAccess OduncDao;
-
-        public OduncManager(IOduncDataAccess OduncDao)
-        {
-            this.OduncDao = OduncDao;
-        }
-
-
         public void delete(Odunc odunc)
         {
             throw new NotImplementedException();
         }
 
-        public List<Odunc> GetAll()
+        public DataSet GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public List<Odunc> GetByBookId(int bookID)
+        public DataSet GetByBookId(int bookID)
         {
             throw new NotImplementedException();
         }
 
-        public List<Odunc> GetByBookISBN(int ISBN)
+        public DataSet GetByBookISBN(int ISBN)
         {
             throw new NotImplementedException();
         }
 
-        public List<Odunc> GetByUser(int userId)
+        public DataSet GetByUser(int userId)
         {
             throw new NotImplementedException();
         }
