@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,9 @@ namespace KutuphaneOtomasyonu.DataAccess.Abstract
         void save(İletisimBilgileri iletisimBilgileri);
         void delete(İletisimBilgileri iletisimBilgileri);
         void update(İletisimBilgileri iletisimBilgileri);
-        List<İletisimBilgileri> getAll();
-        List<İletisimBilgileri> getById(int id);
-        List<İletisimBilgileri> getByUyeId(int uyeId);
-
-
+        DataSet getAll();
+        DataSet getById(int id);
+        DataSet getByUyeId(int uyeId);
 
     }
 }

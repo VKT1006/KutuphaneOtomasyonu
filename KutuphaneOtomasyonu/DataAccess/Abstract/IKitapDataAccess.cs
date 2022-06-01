@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,10 @@ namespace KutuphaneOtomasyonu.DataAccess.Abstract
 
         void delete(Kitap kitap);
 
-        List<Kitap> getAll();
-        Kitap get(Kitap kitap);
-        Kitap getById(int id);
-        List<Kitap> getByName(String name);
-        Kitap getByISBN(String isbn);
+        DataSet getAll();
+        DataSet get(Kitap kitap);
+        DataSet getById(int id);
+        DataSet getByName(String name);
+        DataSet getByISBN(String isbn);
     }
 }

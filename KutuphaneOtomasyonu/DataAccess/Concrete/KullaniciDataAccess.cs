@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,22 +15,22 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             throw new NotImplementedException();
         }
 
-        public Kullanici get(Kullanici kullanici)
+        public DataSet get(Kullanici kullanici)
         {
             throw new NotImplementedException();
         }
 
-        public List<Kullanici> GetAll()
+        public DataSet GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Kullanici getById(int id)
+        public DataSet getById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Kullanici> getByName(string name)
+        public DataSet getByName(string name)
         {
             throw new NotImplementedException();
         }
