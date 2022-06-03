@@ -37,7 +37,7 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
 
                 query = "delete from iletisim_bilgileri where id=" + iletisimBilgileri.id ;
 
-                cmd = new MySqlCommand(query);
+                cmd = new MySqlCommand(query,conn);
 
                 cmd.ExecuteNonQuery();
 

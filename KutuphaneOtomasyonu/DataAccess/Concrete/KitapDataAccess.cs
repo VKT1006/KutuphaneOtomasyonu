@@ -13,91 +13,256 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
     {
 
         static string server = "localhost";
-        static string database = "denemeKutuphaneOtomasyonu";
-        static string username = "root";
+        static string database = "kutuphaneotomasyonu";
+        static string userName = "root";
         static string password = "";
+        static string connectionString = "SERVER=" + server + ";"
+            + "DATABASE=" + database + ";"
+            + "UID=" + userName + ";"
+            + "PASSWORD=" + password + ";";
 
-        string commandSql;
+        static string query = "";
 
-        MySqlConnection conn;
-        MySqlCommand cmd;
         MySqlDataAdapter dataAdapter;
-        DataSet dataSet;
+        MySqlCommand cmd;
+        MySqlConnection conn = new MySqlConnection(connectionString);
+        DataSet ds;
 
-        List<Kitap> kitaplar;
+
 
         static String conString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
 
         public void delete(Kitap kitap)
         {
-            using (conn = new MySqlConnection(conString))
-
+            try
+            {
                 conn.Open();
 
-            commandSql = "delete from table where id= " + kitap.id;
+                query = "delete from kitaplar where id=" + kitap.id;
 
-            cmd = new MySqlCommand(commandSql, conn);
+                cmd = new MySqlCommand(query, conn);
 
-            cmd.ExecuteNonQuery();  
+                cmd.ExecuteNonQuery();
 
-            conn.Close();            
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
 
         }
 
         public DataSet get(Kitap kitap)
         {
-
-            kitaplar = new List<Kitap>();
-
-            conn = new MySqlConnection(conString);
-
-            commandSql = "select * from kitaplar where id = " + kitap.id;
-
-            dataAdapter = new MySqlDataAdapter(commandSql, conn);
-
-            dataAdapter.Fill(dataSet);
-
-            // this will transfer the data inside my dataset to an arrayList
-            foreach(DataRow dr in dataSet.Tables[0].Rows)
+            ds = new DataSet();
+            try
             {
-                //kitaplar.Add(new Kitap(dr["id"]))
+
+                conn.Open();
+
+                query = "select * from kitaplar where id =" + kitap.id;
+
+                dataAdapter = new MySqlDataAdapter(query,conn);
+
+                dataAdapter.Fill(ds);
+
+                return ds;
+
+
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();  
             }
 
-
-            return null;
-
-
+            return ds;
 
         }
 
         public DataSet getAll()
         {
-            return null;
+            ds = new DataSet();
+            try
+            {
+
+                conn.Open();
+
+                query = "select * from kitaplar";
+
+                dataAdapter = new MySqlDataAdapter(query, conn);
+
+                dataAdapter.Fill(ds);
+
+                return ds;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return ds;
         }
 
         public DataSet getById(int id)
         {
-            throw new NotImplementedException();
+            ds = new DataSet();
+            try
+            {
+
+                conn.Open();
+
+                query = "select * from kitaplar where id =" + kitap.id;
+
+                dataAdapter = new MySqlDataAdapter(query, conn);
+
+                dataAdapter.Fill(ds);
+
+                return ds;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return ds;
         }
 
         public DataSet getByISBN(string isbn)
         {
-            throw new NotImplementedException();
+            ds = new DataSet();
+            try
+            {
+
+                conn.Open();
+
+                query = "select * from kitaplar where ISBN =" + isbn;
+
+                dataAdapter = new MySqlDataAdapter(query, conn);
+
+                dataAdapter.Fill(ds);
+
+                return ds;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return ds;
         }
 
         public DataSet getByName(string name)
         {
-            throw new NotImplementedException();
+            ds = new DataSet();
+            try
+            {
+
+                conn.Open();
+
+                query = "select * from kitaplar where ad =" + name;
+
+                dataAdapter = new MySqlDataAdapter(query, conn);
+
+                dataAdapter.Fill(ds);
+
+                return ds;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return ds;
         }
 
         public void save(Kitap kitap)
         {
-            throw new NotImplementedException();
+
+            /*
+             * 
+             *  When We Want to add a book we gotta select an author !!!
+             *   
+            */
+            try
+            {
+
+                conn.Open();
+
+                query = "insert into kitaplar(id, ISBN, ad, sayfa_sayisi, yazar_id) values ("+ kitap.id+", '"+kitap.ISBN+"','"+kitap.kitapAdi+"','"+kitap.sayfaSayisi+"',"+kitap.yazarId+")";
+
+                cmd = new MySqlCommand(query, conn);
+
+                cmd.ExecuteNonQuery();
+
+
+
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public void update(Kitap kitap)
         {
-            throw new NotImplementedException();
+            try
+            {
+                conn.Open();
+
+                query = "Update kitaplar SET id = " + kitap.id + ", ISBN = " + kitap.ISBN + ", ad=" + kitap.kitapAdi + ", sayfa_sayisi=" + kitap.sayfaSayisi + ", yazar_id = " + kitap.yazarId;
+
+                cmd = new MySqlCommand(query, conn);
+
+                cmd.ExecuteNonQuery();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+
+                conn.Close();
+
+            }
         }
     }
 }
