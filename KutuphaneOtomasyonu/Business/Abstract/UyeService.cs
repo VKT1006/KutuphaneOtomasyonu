@@ -10,10 +10,10 @@ namespace KutuphaneOtomasyonu.Business.Abstract
 {
     internal interface UyeService
     {
-        void save(IUyeDataAccess uye);
-        void update(IUyeDataAccess uye);
-        void delete(IUyeDataAccess uye);
-        DataSet get(IUyeDataAccess uye);
+        void save(Uye uye);
+        void update(Uye uye);
+        void delete(Uye uye);
+        DataSet get(Uye uye);
         DataSet getAll();
         DataSet getByName(String name);
     }
