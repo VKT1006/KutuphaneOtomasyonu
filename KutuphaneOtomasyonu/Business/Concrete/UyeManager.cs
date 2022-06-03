@@ -6,39 +6,43 @@ using System.Text;
 using System.Threading.Tasks;
 using KutuphaneOtomasyonu.Business.Abstract;
 using KutuphaneOtomasyonu.DataAccess.Abstract;
+using KutuphaneOtomasyonu.DataAccess.Concrete;
 
 namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class UyeManager : UyeService
     {
-        public void delete(IUyeDataAccess uye)
+
+        IUyeDataAccess uyeDataAccess = new UyeDataAccess();
+
+        public void delete(Uye uye)
         {
-            throw new NotImplementedException();
+            uyeDataAccess.delete(uye);
         }
 
-        public DataSet get(IUyeDataAccess uye)
+        public DataSet get(Uye uye)
         {
-            throw new NotImplementedException();
+            return uyeDataAccess.get(uye);
         }
 
         public DataSet getAll()
         {
-            throw new NotImplementedException();
+            return uyeDataAccess.getAll();
         }
 
         public DataSet getByName(string name)
         {
-            throw new NotImplementedException();
+            return uyeDataAccess.getByName(name);
         }
 
-        public void save(IUyeDataAccess uye)
+        public void save(Uye uye)
         {
-            throw new NotImplementedException();
+            uyeDataAccess.save(uye);
         }
 
-        public void update(IUyeDataAccess uye)
+        public void update(Uye uye)
         {
-            throw new NotImplementedException();
+            uyeDataAccess.update(uye);
         }
     }
 }

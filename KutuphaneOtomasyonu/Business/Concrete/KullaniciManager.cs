@@ -12,39 +12,42 @@ namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class KullaniciManager : KullaniciService
     {
+
+        IKullaniciDataAccess kullaniciAccess = new KullaniciDataAccess();
+
         public void delete(Kullanici kullanici)
         {
-            throw new NotImplementedException();
+            kullaniciAccess.delete(kullanici);
         }
 
         public DataSet get(Kullanici kullanici)
         {
-            throw new NotImplementedException();
+            return kullaniciAccess.get(kullanici);
         }
 
         public DataSet GetAll()
         {
-            throw new NotImplementedException();
+            return kullaniciAccess.GetAll();            
         }
 
         public DataSet getById(int id)
         {
-            throw new NotImplementedException();
+            return kullaniciAccess.getById(id);
         }
 
         public DataSet getByName(string name)
         {
-            throw new NotImplementedException();
+            return kullaniciAccess.getByName(name);
         }
 
         public void save(Kullanici kullanici)
         {
-            throw new NotImplementedException();
+            kullaniciAccess.save(kullanici);
         }
 
         public void update(Kullanici kullanici)
         {
-            throw new NotImplementedException();
+            kullaniciAccess.update(kullanici);
         }
     }
 }

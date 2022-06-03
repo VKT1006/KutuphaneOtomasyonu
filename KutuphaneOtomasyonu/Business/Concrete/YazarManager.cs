@@ -6,40 +6,44 @@ using System.Text;
 using System.Threading.Tasks;
 using KutuphaneOtomasyonu.Business.Abstract;
 using KutuphaneOtomasyonu.DataAccess.Abstract;
+using KutuphaneOtomasyonu.DataAccess.Concrete;
 using KutuphaneOtomasyonu.Entities;
 
 namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class YazarManager : YazarService
     {
+
+        IYazarDataAccess yazarDataAccess = new YazarDataAccess();
+
         public void delete(Yazar yazar)
         {
-            throw new NotImplementedException();
+            yazarDataAccess.delete(yazar);
         }
 
         public DataSet GetAll()
         {
-            throw new NotImplementedException();
+            return yazarDataAccess.GetAll();
         }
 
         public DataSet GetById(int id)
         {
-            throw new NotImplementedException();
+            return yazarDataAccess.GetById(id);
         }
 
         public DataSet GetByName(string name)
         {
-            throw new NotImplementedException();
+            return yazarDataAccess.GetByName(name);
         }
 
         public void save(Yazar yazar)
         {
-            throw new NotImplementedException();
+            yazarDataAccess.save(yazar);    
         }
 
         public void update(Yazar yazar)
         {
-            throw new NotImplementedException();
+            yazarDataAccess.update(yazar);
         }
     }
 }

@@ -5,50 +5,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KutuphaneOtomasyonu.Business.Abstract;
+using KutuphaneOtomasyonu.DataAccess.Abstract;
 using KutuphaneOtomasyonu.DataAccess.Concrete;
 
 namespace KutuphaneOtomasyonu.Business.Concrete
 {
     internal class KitapManager : KitapService
     {
+
+        IKitapDataAccess kitapDataAccess = new KitapDataAccess();
+
         public void delete(Kitap kitap)
         {
-            throw new NotImplementedException();
+            kitapDataAccess.delete(kitap);  
         }
 
         public DataSet get(Kitap kitap)
         {
-            throw new NotImplementedException();
+            return kitapDataAccess.get(kitap);
         }
 
         public DataSet getAll()
         {
-            throw new NotImplementedException();
+            return kitapDataAccess.getAll();
         }
 
         public DataSet getById(int id)
         {
-            throw new NotImplementedException();
+            return kitapDataAccess.getById(id);
         }
 
         public DataSet getByISBN(string isbn)
         {
-            throw new NotImplementedException();
+            return kitapDataAccess.getByISBN(isbn);
         }
 
         public DataSet getByName(string name)
         {
-            throw new NotImplementedException();
+            return kitapDataAccess.getByName(name);
         }
 
         public void save(Kitap kitap)
         {
-            throw new NotImplementedException();
+            kitapDataAccess.save(kitap);
         }
 
         public void update(Kitap kitap)
         {
-            throw new NotImplementedException();
+            kitapDataAccess.update(kitap);
         }
     }
 }
