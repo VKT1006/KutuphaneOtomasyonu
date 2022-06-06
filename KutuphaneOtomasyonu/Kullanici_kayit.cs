@@ -35,6 +35,10 @@ namespace KutuphaneOtomasyonu
             KullaniciManager kullaniciManager = new KullaniciManager();
             kullaniciManager.save(kullanici);
 
+            MessageBox.Show("Kayıt Alındı!");
+
+            foreach (Control c in Controls) if (c is TextBox) c.Text = ""; // Formun Control sınıfına bakarken direkt controls yaz
+
         }
     }
 }
