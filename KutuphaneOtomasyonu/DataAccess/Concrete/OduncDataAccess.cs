@@ -33,7 +33,7 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             {
                 conn.Open();
 
-                query = "delete from oduncler where id = " + odunc.id;
+                query = "delete from oduncler where id = "+odunc.id+"";
 
                 cmd = new MySqlCommand(query, conn);
 
@@ -81,7 +81,7 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             {
                 conn.Open();
 
-                query = "select * from oduncler where kitap_id = " + bookID;
+                query = "select * from oduncler where kitap_id ="+bookID+" ";
 
                 adapter = new MySqlDataAdapter(query, conn);
 
@@ -111,7 +111,7 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             {
                 conn.Open();
 
-                query = "select * from oduncler where kullanici_id = " + userId;
+                query = "select * from oduncler where kullanici_id ="+userId+" ";
 
                 adapter = new MySqlDataAdapter(query, conn);
 

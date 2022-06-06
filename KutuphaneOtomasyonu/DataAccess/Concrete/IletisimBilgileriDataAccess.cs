@@ -143,13 +143,79 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             return ds;
         }
 
+        public int getIdByEmail(string email)
+        {
+            ds = new DataSet();
+
+            try
+            {
+                conn.Open();
+
+                query = "select id from iletisim_bilgileri where email = '"+email+"'";
+
+                dataAdapter = new MySqlDataAdapter(query, conn);
+
+                dataAdapter.Fill(ds);
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            int id = 0;
+
+            foreach(DataRow row in ds.Tables[0].Rows)
+            {
+                id =Convert.ToInt32( row["id"].ToString());
+            }
+
+            return id;
+
+        }
+
+        public int getLastSavedId()
+        {
+            ds = new DataSet();
+
+            try
+            {
+                conn.Open();
+
+                query = "select id from iletisim_bilgileri where  id=(select max(id) from iletisim_bilgileri)";
+
+                dataAdapter = new MySqlDataAdapter(query, conn);
+
+                dataAdapter.Fill(ds);
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            int id = 0; 
+
+            foreach(DataRow row in ds.Tables[0].Rows)
+            {
+                id = Convert.ToInt32( row["ID"].ToString());  
+            }
+            return id;
+
+        }
+
         public void save(İletisimBilgileri iletisimBilgileri)
         {
             try
             {
                 conn.Open();
 
-                query = "insert into iletisim_bilgileri(id, uye_id,  telefon, email) values("+ iletisimBilgileri.id+",'"+iletisimBilgileri.uyeId+"','"+iletisimBilgileri.telefon+"','"+iletisimBilgileri.email+"')";
+                query = "insert into iletisim_bilgileri(id, telefon, email) values(" + iletisimBilgileri.id+",'"+iletisimBilgileri.telefon+"','"+iletisimBilgileri.email+"')";
 
                 cmd = new MySqlCommand(query, conn);
 
@@ -173,12 +239,11 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             {
                 conn.Open();
 
-                query = "update iletisim_bilgileri SET id = " + iletisimBilgileri.id + ", uye_id=" + iletisimBilgileri.uyeId + ", telefon=" + iletisimBilgileri.telefon + ", email= " + iletisimBilgileri.email+ "where id=" + iletisimBilgileri.id;
+                query = "update iletisim_bilgileri SET telefon='"+iletisimBilgileri.telefon+"', email= '"+iletisimBilgileri.email+"' where id="+iletisimBilgileri.id+"";
 
                 cmd = new MySqlCommand(query, conn);
 
                 cmd.ExecuteNonQuery();
-
 
             }
             catch (Exception e)

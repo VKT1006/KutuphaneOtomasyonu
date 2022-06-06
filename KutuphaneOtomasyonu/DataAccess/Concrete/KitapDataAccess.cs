@@ -26,11 +26,11 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
         MySqlDataAdapter dataAdapter;
         MySqlCommand cmd;
         MySqlConnection conn = new MySqlConnection(connectionString);
-        DataSet ds;
+        DataSet ds = new DataSet();
 
 
 
-        static String conString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+        static String conString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + userName + ";" + "PASSWORD=" + password + ";";
 
         public void delete(Kitap kitap)
         {
@@ -38,7 +38,7 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             {
                 conn.Open();
 
-                query = "delete from kitaplar where id=" + kitap.id;
+                query = "delete from kitaplar where id="+kitap.id+"";
 
                 cmd = new MySqlCommand(query, conn);
 
@@ -57,13 +57,13 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
 
         public DataSet get(Kitap kitap)
         {
-            ds = new DataSet();
+            
             try
             {
 
                 conn.Open();
 
-                query = "select * from kitaplar where id =" + kitap.id;
+                query = "select * from kitaplar where id ="+kitap.id+"";
 
                 dataAdapter = new MySqlDataAdapter(query,conn);
 
@@ -88,13 +88,13 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
 
         public DataSet getAll()
         {
-            ds = new DataSet();
+            
             try
             {
 
                 conn.Open();
 
-                query = "select * from kitaplar";
+                query = "select k.id, ISBN, kitap_adi, sayfa_sayisi, ad, soyad, dogum_tarihi, aciklama from kitaplar k inner join yazarlar y on k.yazar_id = y.id";
 
                 dataAdapter = new MySqlDataAdapter(query, conn);
 
@@ -119,13 +119,13 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
 
         public DataSet getById(int id)
         {
-            ds = new DataSet();
+            
             try
             {
 
                 conn.Open();
 
-                query = "select * from kitaplar where id =" + kitap.id;
+                query = "select * from kitaplar k inner join yazarlar y on k.yazar_id = y.id where id =" + id;
 
                 dataAdapter = new MySqlDataAdapter(query, conn);
 
@@ -150,13 +150,13 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
 
         public DataSet getByISBN(string isbn)
         {
-            ds = new DataSet();
+            
             try
             {
 
                 conn.Open();
 
-                query = "select * from kitaplar where ISBN =" + isbn;
+                query = "select k.id, ISBN, kitap_adi, sayfa_sayisi, ad, soyad, dogum_tarihi, aciklama from kitaplar k inner join yazarlar y on k.yazar_id = y.id where ISBN =" + isbn;
 
                 dataAdapter = new MySqlDataAdapter(query, conn);
 
@@ -181,13 +181,13 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
 
         public DataSet getByName(string name)
         {
-            ds = new DataSet();
+            
             try
             {
 
                 conn.Open();
 
-                query = "select * from kitaplar where ad =" + name;
+                query = "select k.id, ISBN, kitap_adi, sayfa_sayisi, ad, soyad, dogum_tarihi, aciklama from kitaplar  k inner join yazarlar y on k.yazar_id = y.id where kitap_adi  like '%" + name+"%'";
 
                 dataAdapter = new MySqlDataAdapter(query, conn);
 
@@ -213,23 +213,16 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
         public void save(Kitap kitap)
         {
 
-            /*
-             * 
-             *  When We Want to add a book we gotta select an author !!!
-             *   
-            */
             try
             {
 
                 conn.Open();
 
-                query = "insert into kitaplar(id, ISBN, ad, sayfa_sayisi, yazar_id) values ("+ kitap.id+", '"+kitap.ISBN+"','"+kitap.kitapAdi+"','"+kitap.sayfaSayisi+"',"+kitap.yazarId+")";
+                query = "insert into kitaplar(id, ISBN, kitap_adi, sayfa_sayisi, yazar_id) values (" + kitap.id+", '"+kitap.ISBN+"','"+kitap.kitapAdi+"','"+kitap.sayfaSayisi+"',"+kitap.yazarId+")";
 
                 cmd = new MySqlCommand(query, conn);
 
                 cmd.ExecuteNonQuery();
-
-
 
 
             }catch (Exception ex)
@@ -248,20 +241,19 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             {
                 conn.Open();
 
-                query = "Update kitaplar SET id = " + kitap.id + ", ISBN = " + kitap.ISBN + ", ad=" + kitap.kitapAdi + ", sayfa_sayisi=" + kitap.sayfaSayisi + ", yazar_id = " + kitap.yazarId;
+                query = "Update kitaplar SET ISBN = '" + kitap.ISBN + "', kitap_adi='" + kitap.kitapAdi + "', sayfa_sayisi='" + kitap.sayfaSayisi + "', yazar_id = " + kitap.yazarId+ " WHERE id = "+kitap.id+"";
 
                 cmd = new MySqlCommand(query, conn);
 
                 cmd.ExecuteNonQuery();
+
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
             finally
             {
-
                 conn.Close();
-
             }
         }
     }

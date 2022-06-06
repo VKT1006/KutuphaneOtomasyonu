@@ -15,6 +15,7 @@ namespace KutuphaneOtomasyonu.DataAccess.Abstract
         DataSet get(Uye uye);
         DataSet getAll();
         DataSet getByName(String name);
-
+        int getLastSavedId();
+        int getIdByName(string name);
     }
 }

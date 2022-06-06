@@ -26,7 +26,7 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
         MySqlDataAdapter dataAdapter;
         MySqlCommand cmd;
         MySqlConnection conn = new MySqlConnection(connectionString);
-        DataSet ds;
+        DataSet ds = new DataSet();
 
         public void delete(Kullanici kullanici)
         {
@@ -115,7 +115,7 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             {
                 conn.Open();
 
-                query = "select * from kullanicilar where kullanici_adi = " + name;
+                query = "select * from kullanicilar where kullanici_adi LIKE '%"+name+"%' ";
 
                 dataAdapter = new MySqlDataAdapter(query, conn);
 
@@ -164,12 +164,11 @@ namespace KutuphaneOtomasyonu.DataAccess.Concrete
             {
                 conn.Open();
 
-                query = "UPDATE kullanicilar set kullanici_adi = " + kullanici.kullaniciAdi + ", parola = " + kullanici.parola + " where id = " + kullanici.id;
+                query = "UPDATE kullanicilar set kullanici_adi = '" + kullanici.kullaniciAdi + "', parola = '" + kullanici.parola + "' where id ="+kullanici.id+" " ;
 
                 cmd = new MySqlCommand(query,conn);
 
                 cmd.ExecuteNonQuery();
-
 
 
             }catch(Exception ex)
