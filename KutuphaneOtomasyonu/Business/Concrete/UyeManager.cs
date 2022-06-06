@@ -44,5 +44,15 @@ namespace KutuphaneOtomasyonu.Business.Concrete
         {
             uyeDataAccess.update(uye);
         }
+
+        public int getLastSavedId()
+        {
+            return this.uyeDataAccess.getLastSavedId(); 
+        }
+
+        public int getIdByName(string name)
+        {
+            return this.uyeDataAccess.getIdByName(name);
+        }
     }
 }

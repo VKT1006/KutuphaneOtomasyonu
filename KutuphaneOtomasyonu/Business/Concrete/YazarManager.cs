@@ -45,5 +45,10 @@ namespace KutuphaneOtomasyonu.Business.Concrete
         {
             yazarDataAccess.update(yazar);
         }
+
+        public int GetIdByName(string ad)
+        {
+            return yazarDataAccess.GetIdByName(ad);
+        }
     }
 }

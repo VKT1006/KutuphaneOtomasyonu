@@ -36,6 +36,16 @@ namespace KutuphaneOtomasyonu.Business.Concrete
             return iletisimBilgileriDataAccess.getByUyeId(uyeId);
         }
 
+        public int getIdByEmail(string email)
+        {
+            return this.iletisimBilgileriDataAccess.getIdByEmail(email);
+        }
+
+        public int getLastSavedId()
+        {
+            return this.iletisimBilgileriDataAccess.getLastSavedId();
+        }
+
         public void save(İletisimBilgileri iletisimBilgileri)
         {
             iletisimBilgileriDataAccess.save(iletisimBilgileri);    
@@ -45,5 +55,8 @@ namespace KutuphaneOtomasyonu.Business.Concrete
         {
             iletisimBilgileriDataAccess.update(iletisimBilgileri);
         }
+
+        
+
     }
 }

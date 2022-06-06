@@ -8,15 +8,15 @@ using KutuphaneOtomasyonu.Entities;
 
 namespace KutuphaneOtomasyonu.Business.Abstract
 {
-    internal interface IletisimBilgileriService
+    internal interface AdresService
     {
-        void save(İletisimBilgileri iletisimBilgileri);
-        void delete(İletisimBilgileri iletisimBilgileri);
-        void update(İletisimBilgileri iletisimBilgileri);
+        void save(Adres adres);
+        void delete(Adres adres);
+        void update(Adres adres);
         DataSet getAll();
         DataSet getById(int id);
-        DataSet getByUyeId(int uyeId);
+        DataSet getAdres(int uyeId);
         int getLastSavedId();
-        int getIdByEmail(string email);
+        int getIdByAdres(string adres);
     }
 }
