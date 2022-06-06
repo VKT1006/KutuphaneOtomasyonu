@@ -13,16 +13,16 @@ namespace KutuphaneOtomasyonu.Entities
         public int id { get; set; }
         public string ad { get; set; }
         public string soyad { get; set; }
-        public DateTime dogumTarihi { get; set; }
+        public string dogumTarihi { get; set; }
         public string aciklama { get; set; }
 
 
-        public Yazar() : this(0, "Bilgi Yok", "Bilgi Yok", new DateTime(0,0,0), "Bilgi Yok")
+        public Yazar() : this(0, "Bilgi Yok", "Bilgi Yok", "Bilgi Yok", "Bilgi Yok")
         {
             
         }
 
-        public Yazar(int id, string ad, string soyad, DateTime dogumTarihi, string aciklama)
+        public Yazar(int id, string ad, string soyad, string dogumTarihi, string aciklama)
         {
             this.id = id;
             this.ad = ad;   

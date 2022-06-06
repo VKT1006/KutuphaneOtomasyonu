@@ -10,19 +10,17 @@ namespace KutuphaneOtomasyonu.Entities
     {
 
         public int id { get; set; }
-        public int uyeId { get; set; }
         public string telefon { get; set; }
         public string email { get; set; }
 
-        public İletisimBilgileri() : this(0, 0, "Bilgi Yok", "Bilgi Yok")
+        public İletisimBilgileri() : this(0, "Bilgi Yok", "Bilgi Yok")
         {
 
         }
 
-        public İletisimBilgileri(int id, int uyeId, string telefon, string email)
+        public İletisimBilgileri(int id, string telefon, string email)
         {
             this.id = id;
-            this.uyeId = uyeId;
             this.telefon = telefon;
             this.email = email;
         }
